@@ -1,0 +1,207 @@
+{
+    "swagger": "2.0",
+    "basePath": "/",
+    "paths": {
+        "/Cancel/{id}/{timeslot}": {
+            "parameters": [
+                {
+                    "in": "path",
+                    "description": "the timeslot",
+                    "name": "timeslot",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "in": "path",
+                    "description": "The name of dentist",
+                    "name": "id",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Collection was not found."
+                    }
+                },
+                "description": "To cancel a timeslot of specific dentist by dentist's name and timeslot number.",
+                "operationId": "get_timeslots",
+                "tags": [
+                    "Dentist timeslot"
+                ]
+            }
+        },
+        "/Dentist": {
+            "post": {
+                "responses": {
+                    "404": {
+                        "description": "Error"
+                    },
+                    "200": {
+                        "description": "OK"
+                    },
+                    "201": {
+                        "description": "Created"
+                    }
+                },
+                "description": "This is a default setting to add dentist information, customers cannot access this part.",
+                "operationId": "post_dentists_list",
+                "parameters": [
+                    {
+                        "name": "payload",
+                        "required": true,
+                        "in": "body",
+                        "schema": {
+                            "$ref": "#/definitions/Dentist"
+                        }
+                    }
+                ],
+                "tags": [
+                    "Dentist timeslot"
+                ]
+            },
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    }
+                },
+                "description": "This part is to give all avialable timeslots of every dentists.Retrieve the list of all available dentists",
+                "operationId": "get_dentists_list",
+                "tags": [
+                    "Dentist timeslot"
+                ]
+            }
+        },
+        "/GetDentistinfo/{id}": {
+            "parameters": [
+                {
+                    "in": "path",
+                    "description": "The name of dentist",
+                    "name": "id",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "Successful"
+                    },
+                    "404": {
+                        "description": "Collection was not found"
+                    }
+                },
+                "description": "To give dentist's information about location and specialization by dentist's name.",
+                "operationId": "get_dentists",
+                "tags": [
+                    "Dentist timeslot"
+                ]
+            }
+        },
+        "/Gettimeslotsofdentist/{id}": {
+            "parameters": [
+                {
+                    "in": "path",
+                    "description": "The collection identifier",
+                    "name": "id",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "Successful"
+                    },
+                    "404": {
+                        "description": "Collection was not found"
+                    }
+                },
+                "description": "To give available timeslots of specific dentist by dentist's name.",
+                "operationId": "get_timeslots",
+                "tags": [
+                    "Dentist timeslot"
+                ]
+            }
+        },
+        "/Reserve/{id}/{timeslot}": {
+            "parameters": [
+                {
+                    "in": "path",
+                    "description": "the timeslot",
+                    "name": "timeslot",
+                    "required": true,
+                    "type": "string"
+                },
+                {
+                    "in": "path",
+                    "description": "The name of dentist",
+                    "name": "id",
+                    "required": true,
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "responses": {
+                    "200": {
+                        "description": "OK"
+                    },
+                    "404": {
+                        "description": "Collection was not found."
+                    }
+                },
+                "description": "To reserve a timeslot of specific dentist by dentist's name and timeslot number.",
+                "operationId": "get_timeslots",
+                "tags": [
+                    "Dentist timeslot"
+                ]
+            }
+        }
+    },
+    "info": {
+        "title": "Dentist appointment",
+        "version": "1.0",
+        "description": "This is assignment1 of COMP9322."
+    },
+    "produces": [
+        "application/json"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "tags": [
+        {
+            "name": "Dentist timeslot",
+            "description": "Default namespace"
+        }
+    ],
+    "definitions": {
+        "Dentist": {
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "location": {
+                    "type": "string"
+                },
+                "specialization": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    },
+    "responses": {
+        "ParseError": {
+            "description": "When a mask can't be parsed"
+        },
+        "MaskError": {
+            "description": "When any error occurs on mask"
+        }
+    }
+}
