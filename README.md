@@ -1,6 +1,6 @@
 # restful-dialogflow-chatbot
 
-It is the last Project at UNSW.  
+It is AI NLP chatbot for book dentists and converses with customers. 
 
 Using full stack web development combining with AI chatbot to assist customers to book examinations.  
 
